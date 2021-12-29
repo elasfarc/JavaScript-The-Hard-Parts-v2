@@ -51,7 +51,7 @@ forEach(letters, function(char) {
 console.log(alphabet);   //prints 'abcd'
 */
 
-function forEach(array, callbackFn) {
+function myForEach(array, callbackFn) {
   for (let element of array) {
     callbackFn(element);
   }

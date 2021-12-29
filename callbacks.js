@@ -83,11 +83,38 @@ function myreduce(array, callback, initial) {
   let memo = initial;
   for (let i = 0; i < array.length; i++) {
     if (i === 0 && !memo) memo = array[i];
-    else memo = callback(memo, array[i]);
+    else memo = callback(memo, array[i], i);
   }
   return memo;
 }
 
 let x = myreduce([1, 7, 3], (acc, ele) => acc + ele); //11
 let y = myreduce([1, 7, 3], (acc, ele) => acc + ele, 10); //21
-console.log(x, y);
+//console.log(x, y);
+
+/*
+Challenge 7
+Construct a function intersection that compares input arrays and returns a new array with elements found in all of the inputs. BONUS: Use reduce!
+*/
+
+function intersection(...arrays) {
+  if (arrays.length === 0) return arrays;
+  return myreduce(
+    arrays,
+    (acc, arr, i) => {
+      if (i === 0) return arr;
+      const intersection = [];
+      acc.forEach((accEle) => {
+        if (arr.some((ele) => accEle === ele)) {
+          intersection.push(accEle);
+        }
+      });
+      return intersection;
+    },
+    []
+  );
+}
+
+console.log(
+  intersection([5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20])
+); // should log: [5, 15]

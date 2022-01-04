@@ -425,3 +425,30 @@ const multiplyByThree = (num) => num * 3;
 
 console.log(combineOperations(0, [add100, divByFive, multiplyByThree])); // Should output 60
 console.log(combineOperations(0, [divByFive, multiplyByThree, add100])); // Should output 100
+
+/*
+Challenge 23
+Define a function myFindIndex that takes an array and a callback. myFindIndex should pass each element from the array (in order) into the callback. If the callback returns true, myFindIndex should return the index of the current element. If the callback never returns true, myFindIndex should return -1;
+*/
+
+// Challenge 23
+function myFindIndex(array, callback) {
+  let firstTrueIndex = -1;
+  for (let index = 0; index < array.length; index++) {
+    if (callback(array[index])) {
+      firstTrueIndex = index;
+      break;
+    }
+  }
+  return firstTrueIndex;
+}
+
+const numbers = [2, 3, 6, 64, 10, 8, 12];
+const evens = [2, 4, 6, 8, 10, 12, 64];
+
+function isOddd(num) {
+  return num % 2 !== 0;
+}
+
+console.log(myFindIndex(numbers, isOddd)); // Output should be 1
+console.log(myFindIndex(evens, isOddd)); // Output should be -1

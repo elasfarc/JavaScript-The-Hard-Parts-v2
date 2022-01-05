@@ -273,3 +273,21 @@ obj = createSecretHolder(5);
 console.log(obj.getSecret()); // => returns 5
 obj.setSecret(2);
 console.log(obj.getSecret()); // => returns 2
+
+/*
+Challenge 14
+Write a function, callTimes, that returns a new function. The new function should return the number of times it’s been called.
+*/
+
+function callTimes() {
+  let counter = 0;
+  return () => ++counter;
+}
+
+// /*** Uncomment these to check your work! ***/
+let myNewFunc1 = callTimes();
+let myNewFunc2 = callTimes();
+console.log(myNewFunc1()); // => 1
+console.log(myNewFunc1()); // => 2
+console.log(myNewFunc2()); // => 1
+console.log(myNewFunc2()); // => 2

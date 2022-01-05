@@ -93,3 +93,21 @@ const afterCalled = after(3, called);
 afterCalled(); // => nothing is printed
 afterCalled(); // => nothing is printed
 afterCalled(); // => 'hello' is printed
+
+/*
+Challenge 6
+Write a function delay that accepts a callback as the first parameter and the wait in milliseconds before allowing the callback to be invoked as the second parameter. Any additional arguments after wait are provided to func when it is invoked. HINT: research setTimeout();
+*/
+
+function delay(func, wait, ...args) {
+  setTimeout(func, wait, ...args);
+}
+
+// delay(
+//   (x, y) => {
+//     console.log(x + y);
+//   },
+//   5000,
+//   10,
+//   20
+// );

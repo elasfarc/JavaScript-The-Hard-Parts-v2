@@ -50,4 +50,22 @@ function limitedRepeat() {
   setTimeout(() => clearInterval(intervalID), 6000);
 }
 
-limitedRepeat();
+// limitedRepeat();
+
+/*
+Challenge 6
+Write a function called everyXsecsForYsecs that will accept three arguments: a function func, a number interval, and another number duration.
+
+everyXsecsForYsecs will execute the given function every interval number of milliseconds, but then automatically stop after duration milliseconds.
+*/
+
+function everyXsecsForYsecs(func, interval, duration) {
+  const intervalID = setInterval(func, interval * 1000);
+  setTimeout(() => clearInterval(intervalID), duration * 1000);
+  func();
+}
+// Uncomment the following lines to check your work!
+function theEnd() {
+  console.log("This is the end!");
+}
+everyXsecsForYsecs(theEnd, 2, 20); // should invoke theEnd function every 2 seconds, for 20 seconds): This is the end!

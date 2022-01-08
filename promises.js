@@ -17,3 +17,11 @@ const promise = new Promise((resolve) =>
 );
 
 promise.then((v) => console.log(v));
+
+/*
+Challenge 3
+Create another promise. Now have it reject with a value of "Rejected!" without using setTimeout. Print the contents of the promise after it has been rejected by passing console.log to .catch
+*/
+
+const rejectedPromise = new Promise((resolve, reject) => reject("Rejected"));
+rejectedPromise.catch((err) => console.log(err));

@@ -184,3 +184,18 @@ function adminFactory(name, score) {
   Object.setPrototypeOf(admin, adminFunctionStore);
   return admin;
 }
+
+/*
+Challenge 14
+Created a method called sharePublicMessage that logs 'Welcome users!' and will be available to adminFactory objects, but not userFactory objects. Do not add this method directly in the adminFactory function.
+*/
+
+adminFunctionStore.sharePublicMessage = function () {
+  console.log("Welcome users!");
+};
+
+const adminFromFactory = adminFactory("Eva", 5);
+
+// /********* Uncomment these lines to test your work! *********/
+adminFromFactory.sayType(); // -> Logs "I am a Admin"
+adminFromFactory.sharePublicMessage(); // -> Logs "Welcome users!"

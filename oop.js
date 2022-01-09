@@ -136,3 +136,35 @@ george.greet(); // -> Logs 'hello'
 const thai = new DeveloperClass("Thai", 32);
 console.log(thai.name); // -> Logs 'Thai'
 thai.introduce(); //-> Logs 'Hello World, my name is Thai'
+
+/*
+EXTENSION: Subclassing
+Classes in JavaScript can also inherit properties from other classes - this phenomena is known as subclassing. If you've finished all the main challenges, we encourage you to do some research on this concept and complete the challenges below!
+Challenge 10
+Create an object adminFunctionStore that has access to all methods in the userFunctionStore object, without copying them over individually.
+*/
+
+/****************************************************************
+                      EXTENSION: SUBCLASSING
+****************************************************************/
+
+const userFunctionStore = {
+  sayType: function () {
+    console.log("I am a " + this.type);
+  },
+};
+
+function userFactory(name, score) {
+  let user = Object.create(userFunctionStore);
+  user.type = "User";
+  user.name = name;
+  user.score = score;
+  return user;
+}
+
+/*** CHALLENGE 10 ***/
+
+const adminFunctionStore = {};
+Object.setPrototypeOf(adminFunctionStore, userFunctionStore);
+
+adminFunctionStore.sayType();

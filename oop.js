@@ -167,4 +167,20 @@ function userFactory(name, score) {
 const adminFunctionStore = {};
 Object.setPrototypeOf(adminFunctionStore, userFunctionStore);
 
-adminFunctionStore.sayType();
+/*
+Challenge 11
+Create an adminFactory function that creates an object with all the same data fields (and default values) as objects of the userFactory class, but without copying each data field individually.
+
+
+Challenge 12
+Then make sure the value of the 'type' field for adminFactory objects is 'Admin' instead of 'User'.
+
+Challenge 13
+Make sure that adminFactory objects have access to adminFunctionStore methods, without copying them over.
+*/
+function adminFactory(name, score) {
+  const admin = userFactory(name, score);
+  admin.type = "Admin";
+  Object.setPrototypeOf(admin, adminFunctionStore);
+  return admin;
+}
